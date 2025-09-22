@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAMCHIPS - Camilan Sehat dan Bergizi</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background-color: white;
+            padding: 20px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: #000000 !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: #050505 !important;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #2e8b57 !important;
+        }
+        
+        section {
+            padding-top: 100px;
+            margin-top: 20px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1496318447583-f524534e9ce1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            padding-top: 0;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .btn-hero {
+            background-color: #2e8b57;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-hero:hover {
+            background-color: #236b44;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        
+        .website-link {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+        
+        /* About Section Styles */
+        .about-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2e8b57;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #2e8b57;
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .about-highlight {
+            color: #2e8b57;
+            font-weight: 600;
+        }
+        
+        .number-badge {
+            font-size: 5rem;
+            font-weight: 800;
+            color: rgba(46, 139, 87, 0.15);
+            line-height: 1;
+            position: absolute;
+            right: 15px;
+            bottom: -20px;
+            z-index: 1;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        /* Vision Mission Section */
+        .vision-mission-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .vm-item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .vm-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .vm-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2e8b57;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .vm-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: #2e8b57;
+            border-radius: 50%;
+        }
+        
+        .vm-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .vm-image {
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Advantages Section */
+        .advantages-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .advantage-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .advantage-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .advantage-icon {
+            font-size: 2.5rem;
+            color: #2e8b57;
+            margin-bottom: 20px;
+        }
+        
+        .advantage-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 20px;
+        }
+        
+        .gallery-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .certification-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2e8b57;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+        }
+        
+        .certification-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .certification-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .certification-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .certification-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .halal-badge {
+            background: linear-gradient(135deg, #2e8b57 0%, #1e6e45 100%);
+        }
+        
+        .pom-badge {
+            background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+        }
+        
+        .haccp-badge {
+            background: linear-gradient(135deg, #fd7e14 0%, #dc6502 100%);
+        }
+        
+        .certification-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+            color: #2c3e50;
+        }
+        
+        .certification-subtitle {
+            font-size: 1.1rem;
+            color: #2e8b57;
+            font-weight: 500;
+            margin: 5px 0 0 0;
+        }
+        
+        .certification-content {
+            border-left: 3px solid #2e8b57;
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+        
+        .certification-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .certification-footer {
+            display: flex;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .certification-icon {
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #2e8b57;
+            font-size: 1.2rem;
+        }
+        
+        .certification-footer-text {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .highlight {
+            color: #2e8b57;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .certification-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .certification-badge {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .certification-container {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .number-badge {
+                font-size: 4rem;
+                bottom: -10px;
+            }
+            
+            .vm-title {
+                font-size: 1.3rem;
+            }
+            
+            section {
+                padding-top: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#home">FAMCHIPS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#vision-mission">Visi Misi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#advantages">Keunggulan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galeri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Sertifikasi">Sertifikasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonial">Testimonial</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Nikmati Lezatnya Camilan<br>Sehat dan Bergizi</h1>
+                <p class="hero-subtitle">Selamat datang di FamCHIPS. Aneka ragam buah dan sayuran yang 100% alami, renyah, dan bergizi. Bakal tepat untuk camilan sehat anda</p>
+                <a href="#products" class="btn btn-hero">Beli Sekarang</a>
+                <div class="website-link">
+                    <span>www.nikmati.org</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Tentang Kami</h2>
+                    <p class="about-content">
+                        <span class="about-highlight">FamChips</span> adalah UMKM dari Kota Batu Jawa Timur yang menghadirkan keripik sehat dari buah dan sayuran pilihan.  
+                        Setiap produk FamChips dibuat dari bahan 100% alami, diolah secara higienis, dan dibuat dengan penuh cinta. Kami terus tumbuh dan berinovasi demi menghadirkan camilan yang bukan hanya enak, tapi juga sehat dan penuh manfaat.
+                    </p>
+                    <a href="#products" class="btn btn-hero">Pelajari Lebih Lanjut</a>
+                </div>
+                <div class="col-lg-6 position-relative">
+                    <div class="number-badge">01</div>
+                    <img src="https://images.unsplash.com/photo-1612927601601-6638404737ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="FamChips Products" class="img-fluid about-image mt-4 mt-lg-0">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Mission Section -->
+    <section class="vision-mission-section" id="vision-mission">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Vision and Mission</h2>
+                    <p class="about-content mb-4">
+                        FamChips adalah UMKM dari Kota Batu Jawa Timur yang menghadirkan keripik sehat dari buah dan sayuran pilihan.  
+                        Setiap produk FamChips dibuat dari bahan 100% alami, diolah secara higienis, dan dikemas dengan penuh cinta.
+                    </p>
+                    
+                    <div class="vision-mission-content">
+                        <div class="vm-item">
+                            <h3 class="vm-title">Vision</h3>
+                            <p class="vm-text">
+                                FamChips adalah UMKM dari Kota Batu Jawa Timur yang menghadirkan keripik sehat dari buah dan sayuran pilihan. Setiap produk FamChips dibuat dari bahan 100% alami, diolah secara higienis, dan dikemas dengan penuh cinta.
+                            </p>
+                        </div>
+                        
+                        <div class="vm-item">
+                            <h3 class="vm-title">Mission</h3>
+                            <p class="vm-text">
+                                FamChips adalah UMKM dari Kota Batu Jawa Timur yang menghadirkan keripik sehat dari buah dan sayuran pilihan. Setiap produk FamChips dibuat dari bahan 100% alami, diolah secara higienis, dan dikemas dengan penuh cinta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="vm-image-container">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="FamChips Vision Mission" class="img-fluid vm-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages-section" id="advantages">
+        <div class="container">
+            <h2 class="section-title text-center">Product Advantages</h2>
+            <p class="text-center mb-5 about-content">
+                The unique characteristics or benefits of a product that make it more attractive to customers than competing products
+            </p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 class="advantage-title">100% Alami</h4>
+                        <p class="about-content">
+                            FamChips adalah UMKM dari Kota Batu Jawa Timur yang menghadirkan keripik sehat dari buah dan sayuran pilihan.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="advantage-title">Dibuat dengan Cinta</h4>
+                        <p class="about-content">
+                            Setiap produk FamChips dibuat dari bahan 100% alami, diolah secara higienis, dan dikemas dengan penuh cinta.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4 class="advantage-title">Berkualitas Tinggi</h4>
+                        <p class="about-content">
+                            Kami terus tumbuh dan berinovasi demi menghadirkan camilan yang bukan hanya enak, tapi juga sehat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title text-center">Galeri Produk</h2>
+            
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/1200x/cc/c8/8c/ccc88cb1fb434c9338ee5b0cc1d78822.jpg" alt="Apple Chips">
+                        <div class="gallery-caption">
+                            <h5 class="gallery-title">FAMCHIPS APPLE CHIPS</h5>
+                            <p>HEZEDINID</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/1200x/3c/4f/2b/3c4f2b1356726f4a49d0055adae69d7a.jpg" alt="Banana Chips">
+                        <div class="gallery-caption">
+                            <h5 class="gallery-title">FAMCHIPS BANANA CHIPS</h5>
+                            <p>HEZEDINID</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/1200x/a9/c6/85/a9c685fdec24095d65d0e588355be42d.jpg" alt="Potato Chips">
+                        <div class="gallery-caption">
+                            <h5 class="gallery-title">FAMCHIPS POTATO CHIPS</h5>
+                            <p>HEZEDINID</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/1200x/6a/de/c8/6adec81d816fc38deb655cbf556fd0cf.jpg" alt="Carrot Chips">
+                        <div class="gallery-caption">
+                            <h5 class="gallery-title">FAMCHIPS CARROT CHIPS</h5>
+                            <p>HEZEDINID</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/1200x/2f/8d/4c/2f8d4c51428c8303b483c4787cacdcd9.jpg" alt="Sweet Potato Chips">
+                        <div class="gallery-caption">
+                            <h5 class="gallery-title">FAMCHIPS SWEET POTATO CHIPS</h5>
+                            <p>HEZEDINID</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/1200x/a9/3c/a0/a93ca05978984deb2834030f06a98737.jpg" alt="Kale Chips">
+                        <div class="gallery-caption">
+                            <h5 class="gallery-title">FAMCHIPS KALE CHIPS</h5>
+                            <p>HEZEDINID</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- Certification Section -->
+    <section class="certification-section" id="Sertifikasi">
+        <div class="container">
+            <h2 class="section-title">Sertifikasi</h2>
+            <p class="section-subtitle">
+                Keamanan dan kualitas produk kami dapat terjamin karena kami telah mendaftarkan produk kami dengan sertifikasi resmi.
+            </p>
+            
+            <div class="row">
+                <!-- Halal Certification -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="certification-container">
+                        <div class="certification-header">
+                            <div class="certification-badge halal-badge">
+                    
+                            </div>
+                            <div>
+                                <h3 class="certification-title">Halal Certification</h3>
+                                <p class="certification-subtitle">BADAN MUI INDONESIA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="certification-content">
+                            <p class="certification-text">
+                                <span class="highlight">Arijuna Citra Indonesia's Products</span> Telah Melewati Sertifikasi Halal. Produk kami diproduksi sesuai syariat Islam dan dijamin halal untuk dikonsumsi umat Islam.
+                            </p>
+                        </div>
+                        
+                        <div class="certification-footer">
+                            <div class="certification-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="certification-footer-text">
+                                Certified by Indonesian Halal Authority
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BPOM Certification -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="certification-container">
+                        <div class="certification-header">
+                            <div class="certification-badge pom-badge">
+                            
+                            </div>
+                            <div>
+                                <h3 class="certification-title">BPOM Certification</h3>
+                                <p class="certification-subtitle">BADAN POM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="certification-content">
+                            <p class="certification-text">
+                                <span class="highlight">Arijuna Citra Indonesia's Products</span> Have Passed the BPOM (National Agency of Drug and Food Control) Certification. Our products meet all safety and quality standards set by the Indonesian government.
+                            </p>
+                        </div>
+                        
+                        <div class="certification-footer">
+                            <div class="certification-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="certification-footer-text">
+                                Registered and approved by BPOM RI
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HACCP Certification -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="certification-container">
+                        <div class="certification-header">
+                            <div class="certification-badge haccp-badge">
+                     
+                            </div>
+                            <div>
+                                <h3 class="certification-title">HACCP Certification</h3>
+                                <p class="certification-subtitle">HAPPY DAYS</p>
+                            </div>
+                        </div>
+                        
+                        <div class="certification-content">
+                            <p class="certification-text">
+                                <span class="highlight">Arijuna Citra Indonesia's Products</span> Have Passed the HACCP (Hazard Analysis Critical Control Point) Certification. Our production process follows international food safety standards.
+                            </p>
+                        </div>
+                        
+                        <div class="certification-footer">
+                            <div class="certification-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="certification-footer-text">
+                                Internationally recognized food safety system
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Info -->
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                        <h4 class="mb-3" style="color: #2e8b57;">Our Commitment to Quality</h4>
+                        <p class="mb-0">
+                            FamCHIPS is committed to providing the highest quality products. Our certifications demonstrate our dedication to meeting and exceeding industry standards for safety, quality, and religious compliance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    </div>
+    
+   
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Add active class to nav links on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
